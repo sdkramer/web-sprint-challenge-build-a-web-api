@@ -1,5 +1,6 @@
 const express = require('express');
 const projects = require('./projectModel');
+const { validateProject } = require('../../middleware/projects-validation')
 
 const router = express.Router();
 
@@ -36,7 +37,7 @@ router.get('/projects/:id', async (req, res, next) => {
 })
 
 //add a project
-router.post('/projects', async (req, res, next) => {
+router.post('/projects', validateProject(), async (req, res, next) => {
   try {
     const project = await projects.insert(req.body)
     res.status(201).json(project)

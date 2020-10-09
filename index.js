@@ -1,4 +1,5 @@
 const express = require('express');
+const projectRouter = require('./data/helpers/projectRouter');
 
 
 const server = express();
@@ -11,7 +12,7 @@ server.get('/', (req, res) => {
   res.send('api server running!');
 });
 
-
+server.use(projectRouter);
 
 
 server.listen(port, () => {

@@ -1,5 +1,6 @@
 const express = require('express');
 const projectRouter = require('./data/helpers/projectRouter');
+const actionRouter = require('./data/helpers/actionRouter')
 const logger = require('./middleware/logger');
 
 
@@ -16,6 +17,7 @@ server.get('/', (req, res) => {
 });
 
 server.use(projectRouter);
+server.use(actionRouter);
 
 
 server.listen(port, () => {

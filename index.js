@@ -13,7 +13,7 @@ server.use(logger);
 
 
 server.get('/', (req, res) => {
-  res.send('api server running!');
+  res.send(`Projects Api server running ${process.env.COHORT}!`);
 });
 
 server.use(projectRouter);

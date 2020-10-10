@@ -5,7 +5,7 @@ const logger = require('./middleware/logger');
 
 
 const server = express();
-const port = 8080;
+const port = process.env.port || 8080;
 
 server.use(express.json());
 
